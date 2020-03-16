@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zmz.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="zmz.entity.po.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="head_photo" jdbcType="VARCHAR" property="headPhoto" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="college" jdbcType="VARCHAR" property="college" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tel, nick_name, name, open_id, head_photo, school, college, major, gender, status
+  </sql>
+
+
+  <select id="selectByOpenId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where open_id = #{openId}
+  </select >
+
+  <select id="selectIdByOpenid" parameterType="java.lang.String" resultType="java.lang.Long">
+    select id from user where open_id = #{openId}
+  </select>
+
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="zmz.entity.po.User">
+    insert into user (id, tel, nick_name, 
+      name, open_id, head_photo, 
+      school, college, major, 
+      gender, status)
+    values (#{id,jdbcType=BIGINT}, #{tel,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{headPhoto,jdbcType=VARCHAR}, 
+      #{school,jdbcType=VARCHAR}, #{college,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=TINYINT}, #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="zmz.entity.po.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="headPhoto != null">
+        head_photo,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="college != null">
+        college,
+      </if>
+      <if test="major != null">
+        major,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="headPhoto != null">
+        #{headPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="college != null">
+        #{college,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zmz.entity.po.User">
+    update user
+    <set>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="headPhoto != null">
+        head_photo = #{headPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="college != null">
+        college = #{college,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zmz.entity.po.User">
+    update user
+    set tel = #{tel,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      head_photo = #{headPhoto,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      college = #{college,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+</mapper>

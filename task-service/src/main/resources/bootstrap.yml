@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: task-service
+  cloud:
+    nacos:
+      config:
+        server-addr: zmz121.cn:8848
+        file-extension: yaml
+        namespace: f678b632-7899-4a2d-acd7-8c7c3394b573
+  profiles:
+    active: dev

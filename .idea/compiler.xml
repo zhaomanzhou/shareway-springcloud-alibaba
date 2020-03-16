@@ -7,11 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mybatis-generator" />
+        <module name="mapper" />
         <module name="api" />
         <module name="common" />
-        <module name="mapper" />
         <module name="model" />
+        <module name="task-service" />
         <module name="mybatisgenerator" />
+        <module name="user-service" />
         <module name="service" />
       </profile>
     </annotationProcessing>
@@ -23,8 +26,11 @@
       <module name="common" options="-parameters" />
       <module name="mapper" options="-parameters" />
       <module name="model" options="-parameters" />
+      <module name="mybatis-generator" options="-parameters" />
       <module name="mybatisgenerator" options="-parameters" />
       <module name="service" options="-parameters" />
+      <module name="task-service" options="-parameters" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>

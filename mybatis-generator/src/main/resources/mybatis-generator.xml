@@ -14,16 +14,16 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql:///shareway?useSSL=false"
+                        connectionURL="jdbc:mysql://zmz121.cn/shareway"
                         userId="root"
-                        password="123456">
+                        password="cloudalibaba">
         </jdbcConnection>
 
         <javaTypeResolver >
-            <property name="forceBigDecimals" value="false" />
+            <property name="forceBigDecimals" value="true" />
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.zmz121.model.po" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="zmz.entity.po" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -32,7 +32,7 @@
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zmz121.dao"  targetProject="src/main/java" >
+        <javaClientGenerator type="XMLMAPPER" targetPackage="zmz.mapper"  targetProject="src/main/java" >
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
@@ -51,10 +51,10 @@
 
         <table tableName="user" enableCountByExample="false" enableDeleteByExample="false"
                enableUpdateByExample="false" enableSelectByExample="false" />
-        <table tableName="task" enableCountByExample="false" enableDeleteByExample="false"
-               enableUpdateByExample="false" enableSelectByExample="false" />
-        <table tableName="task_user" enableCountByExample="false" enableDeleteByExample="false"
-               enableUpdateByExample="false" enableSelectByExample="false" />
+<!--        <table tableName="task" enableCountByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false" enableSelectByExample="false" />-->
+<!--        <table tableName="task_user" enableCountByExample="false" enableDeleteByExample="false"-->
+<!--               enableUpdateByExample="false" enableSelectByExample="false" />-->
 
 
     </context>

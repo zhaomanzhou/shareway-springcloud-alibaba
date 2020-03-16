@@ -1,5 +1,6 @@
 package com.zmz121.model.po;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Task {
@@ -23,11 +24,15 @@ public class Task {
 
     private Byte isDaigou;
 
-    private Short daigouPrice;
+    private BigDecimal daigouPrice;
 
-    private Short taskPrice;
+    private BigDecimal taskPrice;
 
     private Date publicDate;
+
+    private Date modifDate;
+
+    private Date expireDate;
 
     public Long getId() {
         return id;
@@ -109,19 +114,19 @@ public class Task {
         this.isDaigou = isDaigou;
     }
 
-    public Short getDaigouPrice() {
+    public BigDecimal getDaigouPrice() {
         return daigouPrice;
     }
 
-    public void setDaigouPrice(Short daigouPrice) {
+    public void setDaigouPrice(BigDecimal daigouPrice) {
         this.daigouPrice = daigouPrice;
     }
 
-    public Short getTaskPrice() {
+    public BigDecimal getTaskPrice() {
         return taskPrice;
     }
 
-    public void setTaskPrice(Short taskPrice) {
+    public void setTaskPrice(BigDecimal taskPrice) {
         this.taskPrice = taskPrice;
     }
 
@@ -131,5 +136,21 @@ public class Task {
 
     public void setPublicDate(Date publicDate) {
         this.publicDate = publicDate;
+    }
+
+    public Date getModifDate() {
+        return modifDate;
+    }
+
+    public void setModifDate(Date modifDate) {
+        this.modifDate = modifDate;
+    }
+
+    public Date getExpireDate() {
+        return expireDate;
+    }
+
+    public void setExpireDate(Date expireDate) {
+        this.expireDate = expireDate;
     }
 }
