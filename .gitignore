@@ -32,7 +32,7 @@ build/
 
 
 
-/api/
-/mapper/
-/service/
-/model/
+api/
+mapper/
+service/
+model/

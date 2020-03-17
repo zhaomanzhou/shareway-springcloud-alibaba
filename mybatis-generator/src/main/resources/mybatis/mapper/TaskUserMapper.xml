@@ -1,6 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zmz121.dao.TaskUserMapper">
+<mapper namespace="zmz.mapper.TaskUserMapper">
+  <resultMap id="BaseResultMap" type="zmz.entity.po.TaskUser">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="taskId" jdbcType="BIGINT" property="taskid" />
+    <result column="public_user_id" jdbcType="BIGINT" property="publicUserId" />
+    <result column="get_user_id" jdbcType="BIGINT" property="getUserId" />
+    <result column="public_status" jdbcType="TINYINT" property="publicStatus" />
+    <result column="get_status" jdbcType="TINYINT" property="getStatus" />
+    <result column="create_timne" jdbcType="TIMESTAMP" property="createTimne" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, taskId, public_user_id, get_user_id, public_status, get_status, create_timne, 
+    modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from task_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from task_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="zmz.entity.po.TaskUser">
+    insert into task_user (id, taskId, public_user_id, 
+      get_user_id, public_status, get_status, 
+      create_timne, modify_time)
+    values (#{id,jdbcType=BIGINT}, #{taskid,jdbcType=BIGINT}, #{publicUserId,jdbcType=BIGINT}, 
+      #{getUserId,jdbcType=BIGINT}, #{publicStatus,jdbcType=TINYINT}, #{getStatus,jdbcType=TINYINT}, 
+      #{createTimne,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="zmz.entity.po.TaskUser">
+    insert into task_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="taskid != null">
+        taskId,
+      </if>
+      <if test="publicUserId != null">
+        public_user_id,
+      </if>
+      <if test="getUserId != null">
+        get_user_id,
+      </if>
+      <if test="publicStatus != null">
+        public_status,
+      </if>
+      <if test="getStatus != null">
+        get_status,
+      </if>
+      <if test="createTimne != null">
+        create_timne,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="taskid != null">
+        #{taskid,jdbcType=BIGINT},
+      </if>
+      <if test="publicUserId != null">
+        #{publicUserId,jdbcType=BIGINT},
+      </if>
+      <if test="getUserId != null">
+        #{getUserId,jdbcType=BIGINT},
+      </if>
+      <if test="publicStatus != null">
+        #{publicStatus,jdbcType=TINYINT},
+      </if>
+      <if test="getStatus != null">
+        #{getStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createTimne != null">
+        #{createTimne,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zmz.entity.po.TaskUser">
+    update task_user
+    <set>
+      <if test="taskid != null">
+        taskId = #{taskid,jdbcType=BIGINT},
+      </if>
+      <if test="publicUserId != null">
+        public_user_id = #{publicUserId,jdbcType=BIGINT},
+      </if>
+      <if test="getUserId != null">
+        get_user_id = #{getUserId,jdbcType=BIGINT},
+      </if>
+      <if test="publicStatus != null">
+        public_status = #{publicStatus,jdbcType=TINYINT},
+      </if>
+      <if test="getStatus != null">
+        get_status = #{getStatus,jdbcType=TINYINT},
+      </if>
+      <if test="createTimne != null">
+        create_timne = #{createTimne,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zmz.entity.po.TaskUser">
+    update task_user
+    set taskId = #{taskid,jdbcType=BIGINT},
+      public_user_id = #{publicUserId,jdbcType=BIGINT},
+      get_user_id = #{getUserId,jdbcType=BIGINT},
+      public_status = #{publicStatus,jdbcType=TINYINT},
+      get_status = #{getStatus,jdbcType=TINYINT},
+      create_timne = #{createTimne,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
   <resultMap id="BaseResultMap" type="com.zmz121.model.po.TaskUser">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="task_id" jdbcType="BIGINT" property="taskId" />

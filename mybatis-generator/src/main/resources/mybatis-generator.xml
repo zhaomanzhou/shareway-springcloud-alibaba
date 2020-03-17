@@ -53,8 +53,8 @@
                enableUpdateByExample="false" enableSelectByExample="false" />
 <!--        <table tableName="task" enableCountByExample="false" enableDeleteByExample="false"-->
 <!--               enableUpdateByExample="false" enableSelectByExample="false" />-->
-<!--        <table tableName="task_user" enableCountByExample="false" enableDeleteByExample="false"-->
-<!--               enableUpdateByExample="false" enableSelectByExample="false" />-->
+        <table tableName="task_user" enableCountByExample="false" enableDeleteByExample="false"
+               enableUpdateByExample="false" enableSelectByExample="false" />
 
 
     </context>
