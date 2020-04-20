@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("zmz.mapper")
+
 public class UserServiceApp {
     public static void main(String[] args) {
         SpringApplication.run(UserServiceApp.class, args);

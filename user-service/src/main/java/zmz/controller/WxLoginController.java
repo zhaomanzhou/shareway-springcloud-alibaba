@@ -13,7 +13,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import zmz.constant.TokenHashConst;
 import zmz.entity.po.User;
-import zmz.service.UserService;
+import zmz.service.impl.UserService;
 import zmz.util.HttpClientUtil;
 import zmz.util.Jwtutil;
 

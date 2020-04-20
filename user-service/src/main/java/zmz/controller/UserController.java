@@ -8,7 +8,7 @@ import response.CommonResponse;
 import response.error.BusinessException;
 import zmz.constant.TokenHashConst;
 import zmz.entity.po.User;
-import zmz.service.UserService;
+import zmz.service.impl.UserService;
 
 import static zmz.exception.BusinessErrorEnum.PARAMETER_EMPTY_ERROR;
 import static zmz.exception.BusinessErrorEnum.USER_NOT_EXIST;
